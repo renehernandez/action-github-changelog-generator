@@ -1,4 +1,4 @@
-# ✏️ github-changelog-generator-action
+# ✏️ action-github-changelog-generator
 
 Automatically generate change log from your tags, issues, labels and pull requests on GitHub,
 using [github-changelog-generator](https://github.com/github-changelog-generator/github-changelog-generator)'s
