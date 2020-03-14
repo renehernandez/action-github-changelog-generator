@@ -144,6 +144,6 @@ if istrue "$INPUT_STRIPGENERATORNOTICE"; then
 fi
 
 # Save change log to outputs.
-if [[ -e "$FILE" ]]; then CHANGELOG="$(cat CHANGELOG.md)"; fi
-export CHANGELOG
-echo ::set-output name=changelog::"${CHANGELOG}"
+if [[ -e "$FILE" ]]; then
+  echo ::set-output name=changelog::"$(cat "$FILE")"
+fi
