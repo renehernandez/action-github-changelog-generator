@@ -1,4 +1,15 @@
 #!/bin/bash
+istrue () {
+  case $1 in
+    "true"|"yes"|"y") return 0;;
+    *) return 1;;
+  esac
+}
+
+# Go to GitHub workspace.
+if [ -n "$GITHUB_WORKSPACE" ]; then
+  cd "$GITHUB_WORKSPACE" || exit
+fi
 
 # Set repository from GitHub, if not set.
 if [ -z "$INPUT_REPO" ]; then INPUT_REPO="$GITHUB_REPOSITORY"; fi
@@ -8,17 +19,13 @@ if [ -z "$INPUT_USER" ]; then INPUT_USER=$(echo "$INPUT_REPO" | cut -d / -f 1 );
 if [ -z "$INPUT_PROJECT" ]; then INPUT_PROJECT=$(echo "$INPUT_REPO" | cut -d / -f 2- ); fi
 
 
-if [ -n "$GITHUB_WORKSPACE" ]; then
-  cd "$GITHUB_WORKSPACE" || exit
+# Only show last tag.
+if istrue "$INPUT_ONLYLASTTAG"; then
+  INPUT_DUETAG=""
+  INPUT_SINCETAG=$(git describe --abbrev=0 --tags "$(git rev-list --tags --skip=1 --max-count=1)")
 fi
 
 # Build arguments.
-istrue () {
-  case $1 in
-    "true"|"yes"|"y") return 0;;
-    *) return 1;;
-  esac
-}
 if [ -n "$INPUT_USER" ]; then ARG_USER="--user $INPUT_USER"; fi
 if [ -n "$INPUT_PROJECT" ]; then ARG_PROJECT="--project $INPUT_PROJECT"; fi
 if [ -n "$INPUT_TOKEN" ]; then ARG_TOKEN="--token $INPUT_TOKEN"; fi

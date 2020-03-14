@@ -169,6 +169,9 @@ inputs:
   prLabel:
     description: "Set up custom label for pull requests section."
     required: false
+  onlyLastTag:
+    description: "Changelog will only show last tag."
+    required: false
   stripHeaders:
     description: "Strip headers."
     required: false
