@@ -1,4 +1,4 @@
-name: "Generate change log"
+name: "Generate changelog"
 description: "Automatically generate change log from your tags, issues, labels and pull requests on GitHub."
 branding:
   icon: edit
