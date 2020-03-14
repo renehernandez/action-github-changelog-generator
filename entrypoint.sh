@@ -17,57 +17,57 @@ istrue () {
 if [ -n "$INPUT_USER" ]; then ARG_USER="--user $INPUT_USER"; fi
 if [ -n "$INPUT_PROJECT" ]; then ARG_PROJECT="--project $INPUT_PROJECT"; fi
 if [ -n "$INPUT_TOKEN" ]; then ARG_TOKEN="--token $INPUT_TOKEN"; fi
-if [ -n "$INPUT_DATE_FORMAT" ]; then ARG_DATE_FORMAT="--date-format $INPUT_DATE_FORMAT"; fi
+if [ -n "$INPUT_DATEFORMAT" ]; then ARG_DATEFORMAT="--date-format $INPUT_DATEFORMAT"; fi
 if [ -n "$INPUT_OUTPUT" ]; then ARG_OUTPUT="--output $INPUT_OUTPUT"; fi
 if [ -n "$INPUT_BASE" ]; then ARG_BASE="--base $INPUT_BASE"; fi
-if [ -n "$INPUT_HEADER_LABEL" ]; then ARG_HEADER_LABEL="--header-label $INPUT_HEADER_LABEL"; fi
-if [ -n "$INPUT_CONFIGURE_SECTIONS" ]; then ARG_CONFIGURE_SECTIONS="--configure-sections $INPUT_CONFIGURE_SECTIONS"; fi
-if [ -n "$INPUT_ADD_SECTIONS" ]; then ARG_ADD_SECTIONS="--add-sections $INPUT_ADD_SECTIONS"; fi
-if [ -n "$INPUT_FRONT_MATTER" ]; then ARG_FRONT_MATTER="--front-matter $INPUT_FRONT_MATTER"; fi
+if [ -n "$INPUT_HEADERLABEL" ]; then ARG_HEADERLABEL="--header-label $INPUT_HEADERLABEL"; fi
+if [ -n "$INPUT_CONFIGURESECTIONS" ]; then ARG_CONFIGURESECTIONS="--configure-sections $INPUT_CONFIGURESECTIONS"; fi
+if [ -n "$INPUT_ADDSECTIONS" ]; then ARG_ADDSECTIONS="--add-sections $INPUT_ADDSECTIONS"; fi
+if [ -n "$INPUT_FRONTMATTER" ]; then ARG_FRONTMATTER="--front-matter $INPUT_FRONTMATTER"; fi
 if istrue "$INPUT_ISSUES"; then ARG_ISSUES="--issues"; else ARG_ISSUES="--no-issues"; fi
-if istrue "$INPUT_ISSUES_WO_LABELS"; then ARG_ISSUES_WO_LABELS="--issues-wo-labels"; else ARG_ISSUES_WO_LABELS="--no-issues-wo-labels"; fi
-if istrue "$INPUT_PULL_REQUESTS"; then ARG_PULL_REQUESTS="--pull-requests"; else ARG_PULL_REQUESTS="--no-pull-requests"; fi
-if istrue "$INPUT_PR_WO_LABELS"; then ARG_PR_WO_LABELS="--pr-wo-labels"; else ARG_PR_WO_LABELS="--no-pr-wo-labels"; fi
-if istrue "$INPUT_FILTER_BY_MILESTONE"; then ARG_FILTER_BY_MILESTONE="--filter-by-milestone"; else ARG_FILTER_BY_MILESTONE="--no-filter-by-milestone"; fi
+if istrue "$INPUT_ISSUESWOLABELS"; then ARG_ISSUESWOLABELS="--issues-wo-labels"; else ARG_ISSUESWOLABELS="--no-issues-wo-labels"; fi
+if istrue "$INPUT_PULLREQUESTS"; then ARG_PULLREQUESTS="--pull-requests"; else ARG_PULLREQUESTS="--no-pull-requests"; fi
+if istrue "$INPUT_PRWOLABELS"; then ARG_PRWOLABELS="--pr-wo-labels"; else ARG_PRWOLABELS="--no-pr-wo-labels"; fi
+if istrue "$INPUT_FILTERBYMILESTONE"; then ARG_FILTERBYMILESTONE="--filter-by-milestone"; else ARG_FILTERBYMILESTONE="--no-filter-by-milestone"; fi
 if istrue "$INPUT_AUTHOR"; then ARG_AUTHOR="--author"; else ARG_AUTHOR="--no-author"; fi
-if istrue "$INPUT_USERNAMES_AS_GITHUB_LOGINS"; then ARG_USERNAMES_AS_GITHUB_LOGINS="--usernames-as-github-logins"; fi
-if istrue "$INPUT_UNRELEASED_ONLY"; then ARG_UNRELEASED_ONLY="--unreleased-only"; fi
+if istrue "$INPUT_USERNAMESASGITHUBLOGINS"; then ARG_USERNAMESASGITHUBLOGINS="--usernames-as-github-logins"; fi
+if istrue "$INPUT_UNRELEASEDONLY"; then ARG_UNRELEASEDONLY="--unreleased-only"; fi
 if istrue "$INPUT_UNRELEASED"; then ARG_UNRELEASED="--unreleased"; else ARG_ISSUES="--no-unreleased"; fi
-if [ -n "$INPUT_UNRELEASED_LABEL" ]; then ARG_UNRELEASED_LABEL="--unreleased-label $INPUT_UNRELEASED_LABEL"; fi
-if istrue "$INPUT_COMPARE_LINK"; then ARG_COMPARE_LINK="--compare-link"; else ARG_COMPARE_LINK="--no-compare-link"; fi
-if [ -n "$INPUT_INCLUDE_LABELS" ]; then ARG_INCLUDE_LABELS="--include-labels $INPUT_INCLUDE_LABELS"; fi
-if [ -n "$INPUT_EXCLUDE_LABELS" ]; then ARG_EXCLUDE_LABELS="--exclude-labels $INPUT_EXCLUDE_LABELS"; fi
-if [ -n "$INPUT_ISSUE_LINE_LABELS" ]; then ARG_ISSUE_LINE_LABELS="--issue-line-labels $INPUT_ISSUE_LINE_LABELS"; fi
-if [ -n "$INPUT_EXCLUDE_TAGS" ]; then ARG_EXCLUDE_TAGS="--exclude-tags $INPUT_EXCLUDE_TAGS"; fi
-if [ -n "$INPUT_EXCLUDE_TAGS_REGEX" ]; then ARG_EXCLUDE_TAGS_REGEX="--exclude-tags-regex $INPUT_EXCLUDE_TAGS_REGEX"; fi
-if [ -n "$INPUT_SINCE_TAG" ]; then ARG_SINCE_TAG="--since-tag $INPUT_SINCE_TAG"; fi
-if [ -n "$INPUT_DUE_TAG" ]; then ARG_DUE_TAG="--due-tag $INPUT_DUE_TAG"; fi
-if [ -n "$INPUT_MAX_ISSUES" ]; then ARG_MAX_ISSUES="--max-issues $INPUT_MAX_ISSUES"; fi
-if [ -n "$INPUT_RELEASE_URL" ]; then ARG_RELEASE_URL="--release-url $INPUT_RELEASE_URL"; fi
-if [ -n "$INPUT_GITHUB_SITE" ]; then ARG_GITHUB_SITE="--github-site $INPUT_GITHUB_SITE"; fi
-if [ -n "$INPUT_GITHUB_API" ]; then ARG_GITHUB_API="--github-api $INPUT_GITHUB_API"; fi
-if istrue "$INPUT_SIMPLE_LIST"; then ARG_SIMPLE_LIST="--simple-list"; fi
-if [ -n "$INPUT_FUTURE_RELEASE" ]; then ARG_FUTURE_RELEASE="--future-release $INPUT_FUTURE_RELEASE"; fi
-if [ -n "$INPUT_RELEASE_BRANCH" ]; then ARG_RELEASE_BRANCH="--release-branch $INPUT_RELEASE_BRANCH"; fi
-if istrue "$INPUT_HTTP_CACHE"; then ARG_HTTP_CACHE="--http-cache"; fi
-if [ -n "$INPUT_CACHE_FILE" ]; then ARG_CACHE_FILE="--cache-file $INPUT_CACHE_FILE"; fi
-if [ -n "$INPUT_CACHE_LOG" ]; then ARG_CACHE_LOG="--cache-log $INPUT_CACHE_LOG"; fi
-if [ -n "$INPUT_SSL_CA_FILE" ]; then ARG_SSL_CA_FILE="--ssl-ca-file $INPUT_SSL_CA_FILE"; fi
+if [ -n "$INPUT_UNRELEASEDLABEL" ]; then ARG_UNRELEASEDLABEL="--unreleased-label $INPUT_UNRELEASEDLABEL"; fi
+if istrue "$INPUT_COMPARELINK"; then ARG_COMPARELINK="--compare-link"; else ARG_COMPARELINK="--no-compare-link"; fi
+if [ -n "$INPUT_INCLUDELABELS" ]; then ARG_INCLUDELABELS="--include-labels $INPUT_INCLUDELABELS"; fi
+if [ -n "$INPUT_EXCLUDELABELS" ]; then ARG_EXCLUDELABELS="--exclude-labels $INPUT_EXCLUDELABELS"; fi
+if [ -n "$INPUT_ISSUELINELABELS" ]; then ARG_ISSUELINELABELS="--issue-line-labels $INPUT_ISSUELINELABELS"; fi
+if [ -n "$INPUT_EXCLUDETAGS" ]; then ARG_EXCLUDETAGS="--exclude-tags $INPUT_EXCLUDETAGS"; fi
+if [ -n "$INPUT_EXCLUDETAGSREGEX" ]; then ARG_EXCLUDETAGSREGEX="--exclude-tags-regex $INPUT_EXCLUDETAGSREGEX"; fi
+if [ -n "$INPUT_SINCETAG" ]; then ARG_SINCETAG="--since-tag $INPUT_SINCETAG"; fi
+if [ -n "$INPUT_DUETAG" ]; then ARG_DUETAG="--due-tag $INPUT_DUETAG"; fi
+if [ -n "$INPUT_MAXISSUES" ]; then ARG_MAXISSUES="--max-issues $INPUT_MAXISSUES"; fi
+if [ -n "$INPUT_RELEASEURL" ]; then ARG_RELEASEURL="--release-url $INPUT_RELEASEURL"; fi
+if [ -n "$INPUT_GITHUBSITE" ]; then ARG_GITHUBSITE="--github-site $INPUT_GITHUBSITE"; fi
+if [ -n "$INPUT_GITHUBAPI" ]; then ARG_GITHUBAPI="--github-api $INPUT_GITHUBAPI"; fi
+if istrue "$INPUT_SIMPLELIST"; then ARG_SIMPLELIST="--simple-list"; fi
+if [ -n "$INPUT_FUTURERELEASE" ]; then ARG_FUTURERELEASE="--future-release $INPUT_FUTURERELEASE"; fi
+if [ -n "$INPUT_RELEASEBRANCH" ]; then ARG_RELEASEBRANCH="--release-branch $INPUT_RELEASEBRANCH"; fi
+if istrue "$INPUT_HTTPCACHE"; then ARG_HTTPCACHE="--http-cache"; fi
+if [ -n "$INPUT_CACHEFILE" ]; then ARG_CACHEFILE="--cache-file $INPUT_CACHEFILE"; fi
+if [ -n "$INPUT_CACHELOG" ]; then ARG_CACHELOG="--cache-log $INPUT_CACHELOG"; fi
+if [ -n "$INPUT_SSLCAFILE" ]; then ARG_SSLCAFILE="--ssl-ca-file $INPUT_SSLCAFILE"; fi
 if istrue "$INPUT_VERBOSE"; then ARG_VERBOSE="--verbose"; else ARG_VERBOSE="--no-verbose"; fi
-if [ -n "$INPUT_BREAKING_LABEL" ]; then ARG_BREAKING_LABEL="--breaking-label $INPUT_BREAKING_LABEL"; fi
-if [ -n "$INPUT_BREAKING_LABELS" ]; then ARG_BREAKING_LABELS="--breaking-labels $INPUT_BREAKING_LABELS"; fi
-if [ -n "$INPUT_ENHANCEMENT_LABEL" ]; then ARG_ENHANCEMENT_LABEL="--enhancement-label $INPUT_ENHANCEMENT_LABEL"; fi
-if [ -n "$INPUT_ENHANCEMENT_LABELS" ]; then ARG_ENHANCEMENT_LABELS="--enhancement-labels $INPUT_ENHANCEMENT_LABELS"; fi
-if [ -n "$INPUT_BUGS_LABEL" ]; then ARG_BUGS_LABEL="--bugs-label $INPUT_BUGS_LABEL"; fi
-if [ -n "$INPUT_BUG_LABELS" ]; then ARG_BUG_LABELS="--bug-labels $INPUT_BUG_LABELS"; fi
-if [ -n "$INPUT_DEPRECATED_LABEL" ]; then ARG_DEPRECATED_LABEL="--deprecated-label $INPUT_DEPRECATED_LABEL"; fi
-if [ -n "$INPUT_DEPRECATED_LABELS" ]; then ARG_DEPRECATED_LABELS="--deprecated-labels $INPUT_DEPRECATED_LABELS"; fi
-if [ -n "$INPUT_REMOVED_LABEL" ]; then ARG_REMOVED_LABEL="--removed-label $INPUT_REMOVED_LABEL"; fi
-if [ -n "$INPUT_REMOVED_LABELS" ]; then ARG_REMOVED_LABELS="--removed-labels $INPUT_REMOVED_LABELS"; fi
-if [ -n "$INPUT_SECURITY_LABEL" ]; then ARG_SECURITY_LABEL="--security-label $INPUT_SECURITY_LABEL"; fi
-if [ -n "$INPUT_SECURITY_LABELS" ]; then ARG_SECURITY_LABELS="--security-labels $INPUT_SECURITY_LABELS"; fi
-if [ -n "$INPUT_ISSUES_LABEL" ]; then ARG_ISSUES_LABEL="--issues-label $INPUT_ISSUES_LABEL"; fi
-if [ -n "$INPUT_PR_LABEL" ]; then ARG_PR_LABEL="--pr-label $INPUT_PR_LABEL"; fi
+if [ -n "$INPUT_BREAKINGLABEL" ]; then ARG_BREAKINGLABEL="--breaking-label $INPUT_BREAKINGLABEL"; fi
+if [ -n "$INPUT_BREAKINGLABELS" ]; then ARG_BREAKINGLABELS="--breaking-labels $INPUT_BREAKINGLABELS"; fi
+if [ -n "$INPUT_ENHANCEMENTLABEL" ]; then ARG_ENHANCEMENTLABEL="--enhancement-label $INPUT_ENHANCEMENTLABEL"; fi
+if [ -n "$INPUT_ENHANCEMENTLABELS" ]; then ARG_ENHANCEMENTLABELS="--enhancement-labels $INPUT_ENHANCEMENTLABELS"; fi
+if [ -n "$INPUT_BUGSLABEL" ]; then ARG_BUGSLABEL="--bugs-label $INPUT_BUGSLABEL"; fi
+if [ -n "$INPUT_BUGLABELS" ]; then ARG_BUGLABELS="--bug-labels $INPUT_BUGLABELS"; fi
+if [ -n "$INPUT_DEPRECATEDLABEL" ]; then ARG_DEPRECATEDLABEL="--deprecated-label $INPUT_DEPRECATEDLABEL"; fi
+if [ -n "$INPUT_DEPRECATEDLABELS" ]; then ARG_DEPRECATEDLABELS="--deprecated-labels $INPUT_DEPRECATEDLABELS"; fi
+if [ -n "$INPUT_REMOVEDLABEL" ]; then ARG_REMOVEDLABEL="--removed-label $INPUT_REMOVEDLABEL"; fi
+if [ -n "$INPUT_REMOVEDLABELS" ]; then ARG_REMOVEDLABELS="--removed-labels $INPUT_REMOVEDLABELS"; fi
+if [ -n "$INPUT_SECURITYLABEL" ]; then ARG_SECURITYLABEL="--security-label $INPUT_SECURITYLABEL"; fi
+if [ -n "$INPUT_SECURITYLABELS" ]; then ARG_SECURITYLABELS="--security-labels $INPUT_SECURITYLABELS"; fi
+if [ -n "$INPUT_ISSUESLABEL" ]; then ARG_ISSUESLABEL="--issues-label $INPUT_ISSUESLABEL"; fi
+if [ -n "$INPUT_PRLABEL" ]; then ARG_PRLABEL="--pr-label $INPUT_PRLABEL"; fi
 
 # Generate change log.
 # shellcheck disable=SC2086 # We specifically want to allow word splitting.
@@ -75,57 +75,57 @@ github_changelog_generator \
   $ARG_USER \
   $ARG_PROJECT \
   $ARG_TOKEN \
-  $ARG_DATE_FORMAT \
+  $ARG_DATEFORMAT \
   $ARG_OUTPUT \
   $ARG_BASE \
-  $ARG_HEADER_LABEL \
-  $ARG_CONFIGURE_SECTIONS \
-  $ARG_ADD_SECTIONS \
-  $ARG_FRONT_MATTER \
+  $ARG_HEADERLABEL \
+  $ARG_CONFIGURESECTIONS \
+  $ARG_ADDSECTIONS \
+  $ARG_FRONTMATTER \
   $ARG_ISSUES \
-  $ARG_ISSUES_WO_LABELS \
-  $ARG_PULL_REQUESTS \
-  $ARG_PR_WO_LABELS \
-  $ARG_FILTER_BY_MILESTONE \
+  $ARG_ISSUESWOLABELS \
+  $ARG_PULLREQUESTS \
+  $ARG_PRWOLABELS \
+  $ARG_FILTERBYMILESTONE \
   $ARG_AUTHOR \
-  $ARG_USERNAMES_AS_GITHUB_LOGINS \
-  $ARG_UNRELEASED_ONLY \
+  $ARG_USERNAMESASGITHUBLOGINS \
+  $ARG_UNRELEASEDONLY \
   $ARG_UNRELEASED \
-  $ARG_UNRELEASED_LABEL \
-  $ARG_COMPARE_LINK \
-  $ARG_INCLUDE_LABELS \
-  $ARG_EXCLUDE_LABELS \
-  $ARG_ISSUE_LINE_LABELS \
-  $ARG_EXCLUDE_TAGS \
-  $ARG_EXCLUDE_TAGS_REGEX \
-  $ARG_SINCE_TAG \
-  $ARG_DUE_TAG \
-  $ARG_MAX_ISSUES \
-  $ARG_RELEASE_URL \
-  $ARG_GITHUB_SITE \
-  $ARG_GITHUB_API \
-  $ARG_SIMPLE_LIST \
-  $ARG_FUTURE_RELEASE \
-  $ARG_RELEASE_BRANCH \
-  $ARG_HTTP_CACHE \
-  $ARG_CACHE_FILE \
-  $ARG_CACHE_LOG \
-  $ARG_SSL_CA_FILE \
+  $ARG_UNRELEASEDLABEL \
+  $ARG_COMPARELINK \
+  $ARG_INCLUDELABELS \
+  $ARG_EXCLUDELABELS \
+  $ARG_ISSUELINELABELS \
+  $ARG_EXCLUDETAGS \
+  $ARG_EXCLUDETAGSREGEX \
+  $ARG_SINCETAG \
+  $ARG_DUETAG \
+  $ARG_MAXISSUES \
+  $ARG_RELEASEURL \
+  $ARG_GITHUBSITE \
+  $ARG_GITHUBAPI \
+  $ARG_SIMPLELIST \
+  $ARG_FUTURERELEASE \
+  $ARG_RELEASEBRANCH \
+  $ARG_HTTPCACHE \
+  $ARG_CACHEFILE \
+  $ARG_CACHELOG \
+  $ARG_SSLCAFILE \
   $ARG_VERBOSE \
-  $ARG_BREAKING_LABEL \
-  $ARG_BREAKING_LABELS \
-  $ARG_ENHANCEMENT_LABEL \
-  $ARG_ENHANCEMENT_LABELS \
-  $ARG_BUGS_LABEL \
-  $ARG_BUG_LABELS \
-  $ARG_DEPRECATED_LABEL \
-  $ARG_DEPRECATED_LABELS \
-  $ARG_REMOVED_LABEL \
-  $ARG_REMOVED_LABELS \
-  $ARG_SECURITY_LABEL \
-  $ARG_SECURITY_LABELS \
-  $ARG_ISSUES_LABEL \
-  $ARG_PR_LABEL
+  $ARG_BREAKINGLABEL \
+  $ARG_BREAKINGLABELS \
+  $ARG_ENHANCEMENTLABEL \
+  $ARG_ENHANCEMENTLABELS \
+  $ARG_BUGSLABEL \
+  $ARG_BUGLABELS \
+  $ARG_DEPRECATEDLABEL \
+  $ARG_DEPRECATEDLABELS \
+  $ARG_REMOVEDLABEL \
+  $ARG_REMOVEDLABELS \
+  $ARG_SECURITYLABEL \
+  $ARG_SECURITYLABELS \
+  $ARG_ISSUESLABEL \
+  $ARG_PRLABEL
 
 # Save change log to outputs.
 FILE="CHANGELOG.md"

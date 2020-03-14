@@ -16,7 +16,7 @@ inputs:
   token:
     description: "To make more than 50 requests per hour your GitHub token is required."
     required: false
-  date_format:
+  dateFormat:
     description: "Date format."
     required: false
   output:
@@ -25,101 +25,101 @@ inputs:
   base:
     description: "Optional base file to append generated changes to."
     required: false
-  header-label:
+  headerLabel:
     description: "Set up custom header label."
     required: false
-  configure-sections:
+  configureSections:
     description: "Define your own set of sections which overrides all default sections."
     required: false
-  add-sections:
+  addSections:
     description: "Add new sections but keep the default sections."
     required: false
-  front-matter:
+  frontMatter:
     description: "Add YAML front matter. Formatted as JSON because it's easier to add on the command line."
     required: false
   issues:
     description: "Include closed issues in changelog."
     required: false
-  issues-wo-labels:
+  issuesWoLabels:
     description: "Include closed issues without labels in changelog."
     required: false
-  pull-requests:
+  pullRequests:
     description: "Include pull-requests in changelog."
     required: false
-  pr-wo-labels:
+  prWoLabels:
     description: "Include pull requests without labels in changelog."
     required: false
-  filter-by-milestone:
+  filterByMilestone:
     description: "Use milestone to detect when issue was resolved."
     required: false
   author:
     description: "Add author of pull request at the end."
     required: false
-  usernames-as-github-logins:
+  usernamesAsGithubLogins:
     description: "Use GitHub tags instead of Markdown links for the author of an issue or pull-request."
     required: false
-  unreleased-only:
+  unreleasedOnly:
     description: "Generate log from unreleased closed issues only."
     required: false
   unreleased:
     description: "Add to log unreleased closed issues."
     required: false
-  unreleased-label:
+  unreleasedLabel:
     description: "Include compare link (Full Changelog) between older version and newer version."
     required: false
-  include-labels:
+  includeLabels:
     description: "Of the labeled issues, only include the ones with the specified labels."
     required: false
-  exclude-labels:
+  excludeLabels:
     description: "Issues with the specified labels will be excluded from changelog."
     required: false
-  issue-line-labels:
+  issueLineLabels:
     description: "The specified labels will be shown in brackets next to each matching issue. Use \"ALL\" to show all labels."
     required: false
-  exclude-tags:
+  excludeTags:
     description: "Changelog will exclude specified tags."
     required: false
-  exclude-tags-regex:
+  excludeTagsRegex:
     description: "Apply a regular expression on tag names so that they can be excluded."
     required: false
-  since-tag:
+  sinceTag:
     description: "Changelog will start after specified tag (default: last tag)."
     default: "'$(git describe --abbrev=0 --tags `git rev-list --tags --skip=1 --max-count=1`)'"
     required: false
-  due-tag:
+  dueTag:
     description: "Changelog will end before specified tag."
     required: false
-  max-issues:
+  maxIssues:
     description: "Maximum number of issues to fetch from GitHub."
     required: false
-  release-url:
+  releaseUrl:
     description: "The URL to point to for release links, in printf format (with the tag as variable)."
     required: false
-  github-site:
+  githubSite:
     description: "The Enterprise GitHub site where your project is hosted."
     required: false
-  github-api:
+  githubApi:
     description: "The enterprise endpoint to use for your GitHub API."
     required: false
-  simple-list:
+  simpleList:
     description: "Create a simple list from issues and pull requests."
     required: false
-  future-release:
+  futureRelease:
     description: "Put the unreleased changes in the specified release number."
     required: false
-  release-branch:
+  releaseBranch:
     description: "Limit pull requests to the release branch, such as master or release."
     required: false
-  http-cache:
+  httpCache:
     description: "Use HTTP Cache to cache GitHub API requests (useful for large repos)."
     required: false
-  cache-file:
+  cacheFile:
     description: "Filename to use for cache."
     required: false
-  cache-log:
+  cacheLog:
     description: "Filename to use for cache log."
     required: false
-  ssl-ca-file:
+  sslCaFile:
     description: "Path to cacert.pem file."
     required: false
   #  require: # excluded
@@ -128,46 +128,46 @@ inputs:
     required: false
   #  version: # excluded
   #  help: # excluded
-  breaking-label:
+  breakingLabel:
     description: "Set up custom label for breaking changes section."
     required: false
-  breaking-labels:
+  breakingLabels:
     description: "Issues with these labels will be added to a new section, called \"Breaking changes\"."
     required: false
-  enhancement-label:
+  enhancementLabel:
     description: "Set up custom label for enhancements section."
     required: false
-  enhancement-labels:
+  enhancementLabels:
     description: "Issues with the specified labels will be added to \"Implemented enhancements\" section."
     required: false
-  bugs-label:
+  bugsLabel:
     description: "Set up custom label for bug-fixes section."
     required: false
-  bug-labels:
+  bugLabels:
     description: "Issues with the specified labels will be added to \"Fixed bugs\" section."
     required: false
-  deprecated-label:
+  deprecatedLabel:
     description: "Set up custom label for deprecated section."
     required: false
-  deprecated-labels:
+  deprecatedLabels:
     description: "Issues with the specified labels will be added to a section called \"Deprecated\"."
     required: false
-  removed-label:
+  removedLabel:
     description: "Set up custom label for removed section."
     required: false
-  removed-labels:
+  removedLabels:
     description: "Issues with the specified labels will be added to a section called \"Removed\"."
     required: false
-  security-label:
+  securityLabel:
     description: "Set up custom label for security section."
     required: false
-  security-labels:
+  securityLabels:
     description: "Issues with the specified labels will be added to a section called \"Security fixes\"."
     required: false
-  issues-label:
+  issuesLabel:
     description: "Set up custom label for closed-issues section."
     required: false
-  pr-label:
+  prLabel:
     description: "Set up custom label for pull requests section."
     required: false
 outputs:
