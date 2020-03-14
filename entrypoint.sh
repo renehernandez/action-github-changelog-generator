@@ -3,9 +3,9 @@
 # Set repository from GitHub, if not set.
 if [ -z "$INPUT_REPO" ]; then INPUT_REPO="$GITHUB_REPOSITORY"; fi
 # Set user input from repository, if not set.
-if [ -z "$INPUT_USER" ]; then INPUT_USER=$(echo "$INPUT_REPO" | cut --delimiter="/" --fields="1" ); fi
+if [ -z "$INPUT_USER" ]; then INPUT_USER=$(echo "$INPUT_REPO" | cut -d / -f 1 ); fi
 # Set project input from repository, if not set.
-if [ -z "$INPUT_PROJECT" ]; then INPUT_PROJECT=$(echo "$INPUT_REPO" | cut --delimiter="/" --fields="2-" ); fi
+if [ -z "$INPUT_PROJECT" ]; then INPUT_PROJECT=$(echo "$INPUT_REPO" | cut -d / -f 2- ); fi
 
 # Build arguments.
 istrue () {
