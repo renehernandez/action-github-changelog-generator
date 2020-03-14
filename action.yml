@@ -83,8 +83,7 @@ inputs:
     description: "Apply a regular expression on tag names so that they can be excluded."
     required: false
   sinceTag:
-    description: "Changelog will start after specified tag (default: last tag)."
-    default: "'$(git describe --abbrev=0 --tags `git rev-list --tags --skip=1 --max-count=1`)'"
+    description: "Changelog will start after specified tag."
     required: false
   dueTag:
     description: "Changelog will end before specified tag."
