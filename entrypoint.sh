@@ -7,6 +7,11 @@ if [ -z "$INPUT_USER" ]; then INPUT_USER=$(echo "$INPUT_REPO" | cut -d / -f 1 );
 # Set project input from repository, if not set.
 if [ -z "$INPUT_PROJECT" ]; then INPUT_PROJECT=$(echo "$INPUT_REPO" | cut -d / -f 2- ); fi
 
+
+if [ -n "$GITHUB_WORKSPACE" ]; then
+  cd "$GITHUB_WORKSPACE" || exit
+fi
+
 # Build arguments.
 istrue () {
   case $1 in
