@@ -133,11 +133,13 @@ if [ -n "$INPUT_OUTPUT" ]; then FILE="$INPUT_OUTPUT"; fi
 
 # Strip Markdown headers.
 if istrue "$INPUT_STRIPHEADERS"; then
+  echo "Stripping headers."
   sed -i '/^#/d' "$FILE"
 fi
 
 # Strip generator notice.
 if istrue "$INPUT_STRIPGENERATORNOTICE"; then
+  echo "Stripping generator notice."
   sed -i '/This Changelog was automatically generated/d' "$FILE"
 fi
 
