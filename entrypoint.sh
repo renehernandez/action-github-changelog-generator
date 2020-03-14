@@ -127,9 +127,21 @@ github_changelog_generator \
   $ARG_ISSUESLABEL \
   $ARG_PRLABEL
 
-# Save change log to outputs.
+# Locate change log.
 FILE="CHANGELOG.md"
 if [ -n "$INPUT_OUTPUT" ]; then FILE="$INPUT_OUTPUT"; fi
+
+# Strip Markdown headers.
+if istrue "$INPUT_STRIPHEADERS"; then
+  sed -i '/^#/d' "$FILE"
+fi
+
+# Strip generator notice.
+if istrue "$INPUT_STRIPGENERATORNOTICE"; then
+  sed -i '/This Changelog was automatically generated/d' "$FILE"
+fi
+
+# Save change log to outputs.
 if [[ -e "$FILE" ]]; then CHANGELOG="$(cat CHANGELOG.md)"; fi
 export CHANGELOG
 echo ::set-output name=changelog::"${CHANGELOG}"

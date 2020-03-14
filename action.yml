@@ -170,6 +170,12 @@ inputs:
   prLabel:
     description: "Set up custom label for pull requests section."
     required: false
+  stripHeaders:
+    description: "Strip headers."
+    required: false
+  stripGeneratorNotice:
+    description: "Strip generator reference."
+    required: false
 outputs:
   changelog:
     description: "Contents of generated change log."
