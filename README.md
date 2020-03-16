@@ -186,13 +186,13 @@ with:
   <dd>Set up custom label for pull requests section.</dd>
 
   <dt><code>onlyLastTag</code></dt>
-  <dd>Changelog will only show last tag. <em>Default: `false`</em></dd>
+  <dd>Changelog will only show last tag. <em>Default: <code>false</code></em></dd>
 
   <dt><code>stripHeaders</code></dt>
-  <dd>Strip headers and only show changes. <em>Default: `false`</em></dd>
+  <dd>Strip headers and only show changes. <em>Default: <code>false</code></em></dd>
 
   <dt><code>stripGeneratorNotice</code></dt>
-  <dd>Strip generator notice. <em>Default: `false`</em></dd>
+  <dd>Strip generator notice. <em>Default: <code>false</code></em></dd>
 </dl>
 
 Unless otherwise stated, the inputs' defaults are described 
