@@ -25,6 +25,8 @@ if istrue "$INPUT_ONLYLASTTAG"; then
   INPUT_SINCETAG=$(git describe --abbrev=0 --tags "$(git rev-list --tags --skip=1 --max-count=1)")
 fi
 
+echo "AddSections Input: $INPUT_ADDSECTIONS"
+
 # Build arguments.
 if [ -n "$INPUT_USER" ]; then ARG_USER="--user $INPUT_USER"; fi
 if [ -n "$INPUT_PROJECT" ]; then ARG_PROJECT="--project $INPUT_PROJECT"; fi
