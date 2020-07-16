@@ -25,8 +25,6 @@ if istrue "$INPUT_ONLYLASTTAG"; then
   INPUT_SINCETAG=$(git describe --abbrev=0 --tags "$(git rev-list --tags --skip=1 --max-count=1)")
 fi
 
-echo "AddSections Input: $INPUT_ADDSECTIONS"
-
 # Build arguments.
 if [ -n "$INPUT_USER" ]; then ARG_USER="--user $INPUT_USER"; fi
 if [ -n "$INPUT_PROJECT" ]; then ARG_PROJECT="--project $INPUT_PROJECT"; fi
@@ -36,7 +34,7 @@ if [ -n "$INPUT_OUTPUT" ]; then ARG_OUTPUT="--output $INPUT_OUTPUT"; fi
 if [ -n "$INPUT_BASE" ]; then ARG_BASE="--base $INPUT_BASE"; fi
 if [ -n "$INPUT_HEADERLABEL" ]; then ARG_HEADERLABEL="--header-label $INPUT_HEADERLABEL"; fi
 if [ -n "$INPUT_CONFIGURESECTIONS" ]; then ARG_CONFIGURESECTIONS="--configure-sections $INPUT_CONFIGURESECTIONS"; fi
-if [ -n "$INPUT_ADDSECTIONS" ]; then ARG_ADDSECTIONS="--add-sections $INPUT_ADDSECTIONS"; fi
+if [ -n "$INPUT_ADDSECTIONS" ]; then ARG_ADDSECTIONS="--add-sections '$INPUT_ADDSECTIONS'"; fi
 if [ -n "$INPUT_FRONTMATTER" ]; then ARG_FRONTMATTER="--front-matter $INPUT_FRONTMATTER"; fi
 if istrue "$INPUT_ISSUES"; then ARG_ISSUES="--issues"; else ARG_ISSUES="--no-issues"; fi
 if istrue "$INPUT_ISSUESWOLABELS"; then ARG_ISSUESWOLABELS="--issues-wo-labels"; else ARG_ISSUESWOLABELS="--no-issues-wo-labels"; fi
@@ -83,8 +81,6 @@ if [ -n "$INPUT_SECURITYLABELS" ]; then ARG_SECURITYLABELS="--security-labels $I
 if [ -n "$INPUT_ISSUESLABEL" ]; then ARG_ISSUESLABEL="--issues-label $INPUT_ISSUESLABEL"; fi
 if [ -n "$INPUT_PRLABEL" ]; then ARG_PRLABEL="--pr-label $INPUT_PRLABEL"; fi
 
-echo "Parsed sections: $ARG_ADDSECTIONS"
-
 # Generate change log.
 # shellcheck disable=SC2086 # We specifically want to allow word splitting.
 github_changelog_generator \
@@ -96,7 +92,7 @@ github_changelog_generator \
   $ARG_BASE \
   $ARG_HEADERLABEL \
   $ARG_CONFIGURESECTIONS \
-  --add-sections '{"documentation":{"prefix":"**Documentation updates**","labels":["documentation"]}}' \
+  $ARG_ADDSECTIONS \
   $ARG_FRONTMATTER \
   $ARG_ISSUES \
   $ARG_ISSUESWOLABELS \
