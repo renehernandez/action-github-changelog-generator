@@ -1,4 +1,6 @@
 #!/bin/bash
+set -o xtrace
+
 istrue () {
   case $1 in
     "true"|"yes"|"y") return 0;;
@@ -80,6 +82,8 @@ if [ -n "$INPUT_SECURITYLABEL" ]; then ARG_SECURITYLABEL="--security-label $INPU
 if [ -n "$INPUT_SECURITYLABELS" ]; then ARG_SECURITYLABELS="--security-labels $INPUT_SECURITYLABELS"; fi
 if [ -n "$INPUT_ISSUESLABEL" ]; then ARG_ISSUESLABEL="--issues-label $INPUT_ISSUESLABEL"; fi
 if [ -n "$INPUT_PRLABEL" ]; then ARG_PRLABEL="--pr-label $INPUT_PRLABEL"; fi
+
+github_changelog_generator --version 
 
 # Generate change log.
 # shellcheck disable=SC2086 # We specifically want to allow word splitting.
