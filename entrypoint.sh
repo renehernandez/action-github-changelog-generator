@@ -94,7 +94,7 @@ github_changelog_generator \
   $ARG_BASE \
   $ARG_HEADERLABEL \
   $ARG_CONFIGURESECTIONS \
-  $ARG_ADDSECTIONS \
+  --add-sections '{"documentation":{"prefix":"**Documentation updates**","labels":["documentation"]}}' \
   $ARG_FRONTMATTER \
   $ARG_ISSUES \
   $ARG_ISSUESWOLABELS \
