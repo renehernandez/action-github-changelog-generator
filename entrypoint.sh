@@ -83,6 +83,8 @@ if [ -n "$INPUT_SECURITYLABELS" ]; then ARG_SECURITYLABELS="--security-labels $I
 if [ -n "$INPUT_ISSUESLABEL" ]; then ARG_ISSUESLABEL="--issues-label $INPUT_ISSUESLABEL"; fi
 if [ -n "$INPUT_PRLABEL" ]; then ARG_PRLABEL="--pr-label $INPUT_PRLABEL"; fi
 
+echo "Parsed sections: $ARG_ADDSECTIONS"
+
 # Generate change log.
 # shellcheck disable=SC2086 # We specifically want to allow word splitting.
 github_changelog_generator \
